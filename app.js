@@ -6,6 +6,7 @@ const app = express();
 app.listen(2000);
 
 app.set('view engine', 'ejs');
+app.set('views', 'myViews');
 
 app.use(express.static('static'));
 app.use(express.urlencoded({ extended: true }));
