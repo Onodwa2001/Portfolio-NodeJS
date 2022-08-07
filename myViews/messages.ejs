@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="navigation">
+        <nav id="myNav">
+            <div class="logo" id="logo">
+                <h3 class="h2">Onodwa</h3>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="/" class="link">Home</a></li>
+                    <li><a href="/#about" class="link">About</a></li>
+                    <li><a href="/#skills" class="link">Skills</a></li>
+                    <li><a href="/#services" class="link">Services</a></li>
+                    <li><a href="/#projects" class="link">Projects</a></li>
+                    <li><a href="/#contact" class="link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <main>
+        <div class="messages-wrap">
+            <h1>Messages <span class="counter"><%= messages.length %></span></h1>
+            <% if (messages.length > 0) { %>
+                <div class="messages">
+                    <% messages.forEach((element, index, array) => { %>
+    
+                        <div class="messageItem">
+                            <a href="/details/<%= element._id %>" id="person">
+                                <h2><%= element.name  %> </h2>
+                                <p>New Message</p>
+                                <p><%= element.createdAt %></p>
+                            </a>
+
+                            <div class="delete" id="delete">
+                                <a href="/delete/<%= element._id %>"><img src="images/trash-can-solid.svg" height="30px" width="30px" alt=""></a>
+                            </div>
+                        </div>
+            
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No posts yet</p>
+            <% } %>
+        </div>
+        
+    </main>
+
+    
+
+    <script src="file.js"></script>
+</body>
+</html>
